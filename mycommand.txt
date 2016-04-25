@@ -1,0 +1,7 @@
+chown -R root:root myfolder
+sudo mount //10.126.0.74/upclog /mnt -o username=liudanny,password=
+find /mnt -name "*.txt" -exec grep -n -H "ProcessType=6" {} \;
+find /mnt/T1* -name "*.txt" -exec grep -n -H "ERROR.*verify_weight.*" {} \; | awk -F= '{print $3}'
+egrep -o "[A-Z]\w*ERROR" *.txt | sort | uniq
+find . -name "*.py" -exec sed -i 's/python2.4/python2.6/' '{}' \;
+find ./ -name "*.py" -exec grep -n -H "RenderServer" {} \;
